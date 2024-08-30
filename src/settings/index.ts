@@ -3,8 +3,8 @@ import { DEFAULT_CALENDARSET_ID } from "src/calendarSetManager";
 import type { CalendarSet, PeriodicConfig } from "src/types";
 import type { SvelteComponent } from "svelte";
 
-import type WeeklyNotesPlugin from "../main";
 import SettingsRouter from "./pages/Router.svelte";
+import type WeeklyNotesPlugin from "../main";
 
 export type ILocaleOverride = "system-default" | string;
 export type IWeekStartOption =
@@ -27,6 +27,8 @@ export interface ISettings {
   calendarSets: CalendarSet[];
 
   enableTimelineComplication: boolean;
+  localeOverride: ILocaleOverride;
+  weekStart: IWeekStartOption;
 }
 
 export const DEFAULT_SETTINGS: ISettings = {
@@ -43,7 +45,7 @@ export const DEFAULT_SETTINGS: ISettings = {
 
   // Localization
   localeOverride: "system-default",
-  weekStart: "locale" as IWeekStartOption,
+  weekStart: "locale",
 };
 
 export const DEFAULT_PERIODIC_CONFIG: PeriodicConfig = Object.freeze({

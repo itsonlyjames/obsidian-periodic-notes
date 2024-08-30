@@ -15,10 +15,7 @@
     getLocaleOptions,
     getWeekStartOptions,
   } from "src/settings/utils";
-  import {
-    configureGlobalMomentLocale,
-    type ILocalizationSettings,
-  } from "src/settings/localization";
+  import { type ILocalizationSettings } from "src/settings/localization";
 
   import GettingStartedBanner from "./GettingStartedBanner.svelte";
   import CalendarSetMenuItem from "./CalendarSets/MenuItem.svelte";
@@ -104,6 +101,7 @@
     options={getWeekStartOptions()}
     value={$localization.weekStart}
     onChange={(e) => {
+      //@ts-ignore
       const val = e.target.value;
       $localization.weekStart = val;
       app.vault.setConfig("weekStart", val);
@@ -122,6 +120,7 @@
     options={getLocaleOptions()}
     value={$localization.localeOverride}
     onChange={(e) => {
+      //@ts-ignore
       const val = e.target.value;
       $localization.localeOverride = val;
       app.vault.setConfig("weekStart", val);
